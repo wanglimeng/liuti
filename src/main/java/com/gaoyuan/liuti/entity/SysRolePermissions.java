@@ -16,7 +16,7 @@ public class SysRolePermissions implements Serializable {
 
     private Integer uid;
     private Integer pid;
-    private byte[] createTime;
+    private String createTime;
     private String updateTime;
 
 
@@ -36,11 +36,11 @@ public class SysRolePermissions implements Serializable {
         this.pid = pid;
     }
 
-    public byte[] getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(byte[] createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

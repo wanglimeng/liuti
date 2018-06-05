@@ -4,6 +4,8 @@ import com.gaoyuan.liuti.entity.SysUser;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+
+
 /**
  * <p>
  *  Mapper 接口
@@ -14,5 +16,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface SysUserMapper extends BaseMapper<SysUser> {
+
+    SysUser findRoleAndPerByUsername(String username);
 
 }

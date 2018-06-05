@@ -21,11 +21,9 @@ public class LiutiApplicationTests {
 	@Test
 	public void contextLoads() {
 
-		List<SysUser> sysUser = iSysUserService.selectList(null);
+		SysUser sysUser = iSysUserService.findRoleAndPerByUsername("wlm");
 
-		sysUser.stream().forEach(res->{
-			System.out.println(res.toString());
-		});
+		System.out.println(sysUser);
 
 	}
 

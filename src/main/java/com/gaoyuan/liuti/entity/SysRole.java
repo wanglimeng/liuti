@@ -3,6 +3,7 @@ package com.gaoyuan.liuti.entity;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -21,7 +22,15 @@ public class SysRole implements Serializable {
     private String rname;
     private String createTime;
     private String updateTime;
+    private List<SysPermissions> pers;
 
+    public List<SysPermissions> getPers() {
+        return pers;
+    }
+
+    public void setPers(List<SysPermissions> pers) {
+        this.pers = pers;
+    }
 
     public Integer getRid() {
         return rid;
@@ -58,10 +67,11 @@ public class SysRole implements Serializable {
     @Override
     public String toString() {
         return "SysRole{" +
-        ", rid=" + rid +
-        ", rname=" + rname +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "rid=" + rid +
+                ", rname='" + rname + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                ", pers=" + pers +
+                '}';
     }
 }

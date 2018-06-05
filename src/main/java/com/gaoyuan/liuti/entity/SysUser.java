@@ -1,6 +1,7 @@
 package com.gaoyuan.liuti.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -21,6 +22,17 @@ public class SysUser implements Serializable {
     private String createTime;
     private String updateTime;
 
+    private List<SysRole> roles;
+
+
+
+    public List<SysRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<SysRole> roles) {
+        this.roles = roles;
+    }
 
     public Integer getUid() {
         return uid;
@@ -73,12 +85,13 @@ public class SysUser implements Serializable {
     @Override
     public String toString() {
         return "SysUser{" +
-        ", uid=" + uid +
-        ", username=" + username +
-        ", password=" + password +
-        ", status=" + status +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "uid=" + uid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", status='" + status + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

@@ -16,9 +16,16 @@ public class SysUserRole implements Serializable {
 
     private Integer uid;
     private Integer rid;
-    private byte[] createTime;
+    private String createTime;
     private String updateTime;
 
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
     public Integer getUid() {
         return uid;
@@ -36,13 +43,6 @@ public class SysUserRole implements Serializable {
         this.rid = rid;
     }
 
-    public byte[] getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(byte[] createTime) {
-        this.createTime = createTime;
-    }
 
     public String getUpdateTime() {
         return updateTime;

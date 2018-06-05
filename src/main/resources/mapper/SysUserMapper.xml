@@ -2,6 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gaoyuan.liuti.mapper.SysUserMapper">
 
+    <resultMap id="base" type="SysUser">
+        <id property="uid" column="uid" />
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
 
+        <collection property="roles" ofType="SysRole">
+            <id property="rid" column="rid" />
+            <result property="rname" column="rname"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateTime" column="update_time"/>
+            <collection property="pers" ofType="SysPermissions">
+                <id property="pid" column="pid"/>
+                <result property="pname" column="pname"/>
+                <result property="createTime" column="create_time"/>
+                <result property="updateTime" column="update_time"/>
+            </collection>
+        </collection>
+
+
+    </resultMap>
+
+<select id="findRoleAndPerByUsername" resultMap="base">
+
+    select u.*,r.*,p.*
+    from sys_user u inner join sys_user_role ur on u.uid=ur.uid
+
+    inner join sys_role r on ur.rid=r.rid
+
+    inner join sys_role_permissions rp on rp.uid=r.rid
+
+    inner  join sys_permissions p on p.pid=rp.pid
+
+	where u.username=#{username}
+
+</select>
 
 </mapper>
