@@ -6,6 +6,8 @@ spring:
     username: root
     password:
     driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    cache: false
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   typeAliasesPackage: com.gaoyuan.liuti.entity
@@ -14,4 +16,3 @@ mybatis-plus:
     field-strategy: 2
     db-column-underline: true
     refresh-mapper: true
-
