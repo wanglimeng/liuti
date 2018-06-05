@@ -2,6 +2,7 @@ package com.gaoyuan.liuti.service;
 
 import com.gaoyuan.liuti.entity.SysUser;
 import com.baomidou.mybatisplus.service.IService;
+import com.gaoyuan.liuti.entity.UserRolePer;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ import java.util.List;
  */
 public interface ISysUserService extends IService<SysUser> {
 
-  SysUser findRoleAndPerByUsername(String username);
+  UserRolePer findRoleAndPerByUsername(String username);
 }

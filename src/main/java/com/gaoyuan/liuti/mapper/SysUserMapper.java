@@ -2,6 +2,7 @@ package com.gaoyuan.liuti.mapper;
 
 import com.gaoyuan.liuti.entity.SysUser;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.gaoyuan.liuti.entity.UserRolePer;
 import org.apache.ibatis.annotations.Mapper;
 
 
@@ -17,6 +18,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
-    SysUser findRoleAndPerByUsername(String username);
+    UserRolePer findRoleAndPerByUsername(String username);
 
 }

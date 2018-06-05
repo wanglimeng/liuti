@@ -1,6 +1,7 @@
 package com.gaoyuan.liuti.service.impl;
 
 import com.gaoyuan.liuti.entity.SysUser;
+import com.gaoyuan.liuti.entity.UserRolePer;
 import com.gaoyuan.liuti.mapper.SysUserMapper;
 import com.gaoyuan.liuti.service.ISysUserService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -24,7 +25,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     SysUserMapper sysUserMapper;
 
     @Override
-    public SysUser findRoleAndPerByUsername(String username) {
+    public UserRolePer findRoleAndPerByUsername(String username) {
         return sysUserMapper.findRoleAndPerByUsername(username);
     }
 }
