@@ -12,7 +12,7 @@ public class BaseController {
     @RequestMapping("/html/{html}")
     String returnHtml(@PathVariable("html") String html) {
 
-        System.out.println("----------------------->");
+
         return html;
     }
 }

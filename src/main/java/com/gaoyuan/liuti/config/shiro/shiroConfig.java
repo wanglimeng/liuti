@@ -3,6 +3,8 @@ package com.gaoyuan.liuti.config.shiro;
 
 
 
+
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -12,6 +14,7 @@ import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
 
@@ -20,7 +23,7 @@ import java.util.Map;
 
 
 
-@Configurable
+@Configuration
 @Order(1)
 public class shiroConfig {
 
@@ -54,35 +57,22 @@ public class shiroConfig {
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         // 配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了
 
-        filterChainDefinitionMap.put("/logout", "logout");
-        //配置记住我或认证通过可以访问的地址
-        filterChainDefinitionMap.put("/index", "user");
-        filterChainDefinitionMap.put("/", "user");
-        filterChainDefinitionMap.put("/login", "kaptchaFilter");
 
-        // <!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
+        filterChainDefinitionMap.put("/css/**", "anon");
+        filterChainDefinitionMap.put("/images/**", "anon");
+        filterChainDefinitionMap.put("/lib/**", "anon");
+        filterChainDefinitionMap.put("/fonts/**", "anon");
 
-        //这段是配合 actuator框架使用的，配置相应的角色才能访问
-//        filterChainDefinitionMap.put("/health", "roles[aix]");//服务器健康状况页面
-//        filterChainDefinitionMap.put("/info", "roles[aix]");//服务器信息页面
-//        filterChainDefinitionMap.put("/env", "roles[aix]");//应用程序的环境变量
-//        filterChainDefinitionMap.put("/metrics", "roles[aix]");
-//        filterChainDefinitionMap.put("/configprops", "roles[aix]");
-
-        //开放的静态资源
-        filterChainDefinitionMap.put("/favicon.ico", "anon");//网站图标
-        filterChainDefinitionMap.put("/AdminLTE-2.3.7/**", "anon");//配置static文件下资源能被访问的，这是个例子
-
-        filterChainDefinitionMap.put("/kaptcha.jpg", "anon");//图片验证码(kaptcha框架)
+        filterChainDefinitionMap.put("/u/login", "anon");
 
         filterChainDefinitionMap.put("/**", "authc");
 
-        // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/login");
+
+        shiroFilterFactoryBean.setLoginUrl("/u/login");
         // 登录成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/index");
+        shiroFilterFactoryBean.setSuccessUrl("/");
         // 未授权界面
-        shiroFilterFactoryBean.setUnauthorizedUrl("/errorView/403_error.html");//不生效(详情原因看MyExceptionResolver)
+//        shiroFilterFactoryBean.setUnauthorizedUrl("/errorView/403_error.html");//不生效(详情原因看MyExceptionResolver)
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
@@ -96,7 +86,7 @@ public class shiroConfig {
         //注意:开发时请先关闭，如不关闭热启动会报错
         //securityManager.setCacheManager(ehCacheManager());//这个如果执行多次，也是同样的一个对象;
         //注入记住我管理器;
-        securityManager.setRememberMeManager(rememberMeManager());
+//        securityManager.setRememberMeManager(rememberMeManager());
         return securityManager;
     }
 
@@ -111,6 +101,10 @@ public class shiroConfig {
     }
 
 
+    @Bean
+    public ShiroDialect shiroDialect() {
+        return new ShiroDialect();
+    }
 
     /**
      * 开启shiro aop注解支持. 使用代理方式;所以需要开启代码支持;
@@ -141,13 +135,14 @@ public class shiroConfig {
      * cookie管理对象;
      * @return
      */
-    @Bean
-    public CookieRememberMeManager rememberMeManager(){
-        //System.out.println("ShiroConfiguration.rememberMeManager()");
-        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
-        cookieRememberMeManager.setCookie(rememberMeCookie());
-        return cookieRememberMeManager;
-    }
+//    @Bean
+//    public CookieRememberMeManager rememberMeManager(){
+//        //System.out.println("ShiroConfiguration.rememberMeManager()");
+//        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
+//        cookieRememberMeManager.setCookie(rememberMeCookie());
+//        return cookieRememberMeManager;
+//    }
+
 
 
 
