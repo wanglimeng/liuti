@@ -22,6 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<mybatis-plus-boot-starter.version>2.1.9</mybatis-plus-boot-starter.version>
+		<mybatisplus.version>2.1.8</mybatisplus.version>
 	</properties>
 
 	<dependencies>
@@ -68,6 +70,29 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- mybatis-plus begin -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatis-plus-boot-starter.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>tomcat-jdbc</artifactId>
+					<groupId>org.apache.tomcat</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- mybatis-plus end -->
+
+		<!-- Code generator test sample-->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
