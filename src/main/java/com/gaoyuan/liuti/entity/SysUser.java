@@ -22,17 +22,17 @@ public class SysUser implements Serializable {
     private String createTime;
     private String updateTime;
 
-    private List<SysRole> roles;
+//    private List<SysRole> roles;
 
 
 
-    public List<SysRole> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<SysRole> roles) {
-        this.roles = roles;
-    }
+//    public List<SysRole> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(List<SysRole> roles) {
+//        this.roles = roles;
+//    }
 
     public Integer getUid() {
         return uid;
@@ -91,7 +91,7 @@ public class SysUser implements Serializable {
                 ", status='" + status + '\'' +
                 ", createTime='" + createTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
-                ", roles=" + roles +
+//                ", roles=" + roles +
                 '}';
     }
 }

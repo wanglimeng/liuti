@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gaoyuan.liuti.mapper.SysUserMapper">
 
-    <resultMap id="base" type="SysUser">
+    <resultMap id="base" type="UserRolePer">
         <id property="uid" column="uid" />
         <result property="username" column="username"/>
         <result property="password" column="password"/>
