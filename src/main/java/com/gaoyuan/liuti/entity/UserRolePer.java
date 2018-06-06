@@ -4,13 +4,13 @@ import java.util.List;
 
 public class UserRolePer extends SysUser {
 
-    List<SysRole> roles;
+    List<UserRole> roles;
 
-    public List<SysRole> getRoles() {
+    public List<UserRole> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<SysRole> roles) {
+    public void setRoles(List<UserRole> roles) {
         this.roles = roles;
     }
 

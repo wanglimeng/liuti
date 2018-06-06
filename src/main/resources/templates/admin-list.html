@@ -28,7 +28,7 @@
     </div>
 
 
-      <table id="demo" lay-filter="test"></table>
+      <table id="demo" class="layui-table" lay-filter="test"></table>
 
     </div>
     <script>
@@ -45,14 +45,14 @@
               , page: true
               , cols: [
                   [
-                      {field: 'uid', title: 'ID', width: 200, sort: true, fixed: 'left'}
-                      , {field: 'username', title: '用户名',edit: 'text', width: 200}
+                      {field: 'uid', title: 'ID',  sort: true, fixed: 'left'}
+                      , {field: 'username', title: '用户名',edit: 'text'}
 
-                      , {field: 'password', title: '密码',edit: 'text', width: 200}
-                      , {field: 'status', title: '状态',edit: 'text', width: 200}
-                      , {field: 'createTime', title: '创建时间', edit: 'text',width: 200}
-                      , {field: 'updateTime', title: '更新时间',edit: 'text', width: 200}
-                      , {fixed: 'right', width: 150, align: 'center', toolbar: '#barDemo'}
+                      , {field: 'password', title: '密码',edit: 'text'}
+                      , {field: 'status', title: '状态',edit: 'text'}
+                      , {field: 'createTime', title: '创建时间', edit: 'text'}
+                      , {field: 'updateTime', title: '更新时间',edit: 'text'}
+                      , {fixed: 'right', align: 'center', toolbar: '#barDemo'}
 
                   ]
 

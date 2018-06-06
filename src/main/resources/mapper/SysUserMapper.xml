@@ -10,7 +10,7 @@
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
 
-        <collection property="roles" ofType="SysRole">
+        <collection property="roles" ofType="UserRole">
             <id property="rid" column="rid" />
             <result property="rname" column="rname"/>
             <result property="createTime" column="create_time"/>

@@ -22,15 +22,11 @@ public class SysRole implements Serializable {
     private String rname;
     private String createTime;
     private String updateTime;
-    private List<SysPermissions> pers;
 
-    public List<SysPermissions> getPers() {
-        return pers;
-    }
 
-    public void setPers(List<SysPermissions> pers) {
-        this.pers = pers;
-    }
+
+
+
 
     public Integer getRid() {
         return rid;
@@ -71,7 +67,7 @@ public class SysRole implements Serializable {
                 ", rname='" + rname + '\'' +
                 ", createTime='" + createTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
-                ", pers=" + pers +
+
                 '}';
     }
 }

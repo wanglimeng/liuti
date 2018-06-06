@@ -1,10 +1,7 @@
 package com.gaoyuan.liuti.config.shiro;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.gaoyuan.liuti.entity.SysPermissions;
-import com.gaoyuan.liuti.entity.SysRole;
-import com.gaoyuan.liuti.entity.SysUser;
-import com.gaoyuan.liuti.entity.UserRolePer;
+import com.gaoyuan.liuti.entity.*;
 import com.gaoyuan.liuti.service.ISysUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -29,11 +26,11 @@ public class AuthRealm extends AuthorizingRealm {
 
         SysUser user=(SysUser) principal.fromRealm(this.getClass().getName()).iterator().next();//获取session中的用户
         List<String> permissions=new ArrayList<>();
-        List<SysRole> userRolePer = iSysUserService.findRoleAndPerByUsername(user.getUsername()).getRoles();
+        List<UserRole> userRolePer = iSysUserService.findRoleAndPerByUsername(user.getUsername()).getRoles();
 
         if (userRolePer.size()>0) {
 
-            for (SysRole sysRole:userRolePer) {
+            for (UserRole sysRole:userRolePer) {
                 List<SysPermissions> sysPermissions = sysRole.getPers();
                 if (sysPermissions.size()>0) {
                     for (SysPermissions sysPermissions1:sysPermissions) {

@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -40,6 +43,7 @@ public class AdminController {
     @PostMapping("/userupdate")
     Object userUpdate(@RequestBody SysUser sysUser) {
 
+        sysUser.setUpdateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()).toString());
 
         Boolean res = iSysUserService
                 .update(sysUser,new EntityWrapper<SysUser>()

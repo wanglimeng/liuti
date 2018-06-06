@@ -2,9 +2,9 @@ server:
     port: 9090
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/liuti
+    url: jdbc:mysql://10.10.1.250:3306/liuti
     username: root
-    password: 122525
+    password: lnyj.net
     driver-class-name: com.mysql.jdbc.Driver
   thymeleaf:
     cache: false
