@@ -16,7 +16,7 @@ public class GeneratorServiceEntity {
     public void generateCode() {
         String packageName = "com.gaoyuan.liuti";
         boolean serviceNameStartWithI = true;//user -> UserService, 设置成true: user -> IUserService
-        generateByTables(serviceNameStartWithI, packageName, "sys_role","sys_permissions","sys_user_role","sys_role_permissions");
+        generateByTables(serviceNameStartWithI, packageName, "dict");
     }
 
     private void generateByTables(boolean serviceNameStartWithI, String packageName, String... tableNames) {
@@ -26,7 +26,7 @@ public class GeneratorServiceEntity {
         dataSourceConfig.setDbType(DbType.MYSQL)
                 .setUrl(dbUrl)
                 .setUsername("root")
-                .setPassword("")
+                .setPassword("lnyj.net")
                 .setDriverName("com.mysql.jdbc.Driver");
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig

@@ -11,11 +11,32 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 05/06/2018 12:32:59
+ Date: 06/06/2018 10:04:29
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for dict
+-- ----------------------------
+DROP TABLE IF EXISTS `dict`;
+CREATE TABLE `dict`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of dict
+-- ----------------------------
+INSERT INTO `dict` VALUES (1, 'admin', 'add');
+INSERT INTO `dict` VALUES (2, 'admin', 'edit');
+INSERT INTO `dict` VALUES (3, 'admin', 'view');
+INSERT INTO `dict` VALUES (4, 'admin', 'delete');
+INSERT INTO `dict` VALUES (5, 'system', 'view');
+INSERT INTO `dict` VALUES (6, 'guest', 'view');
 
 -- ----------------------------
 -- Table structure for sys_permissions
@@ -45,12 +66,14 @@ CREATE TABLE `sys_role`  (
   `create_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `update_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`rid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
 INSERT INTO `sys_role` VALUES (1, 'admin', '20180924', NULL);
+INSERT INTO `sys_role` VALUES (2, 'system', '2018-06-06 09:09:25', NULL);
+INSERT INTO `sys_role` VALUES (3, 'guest', '2018-06-06 09:11:08', NULL);
 
 -- ----------------------------
 -- Table structure for sys_role_permissions
@@ -81,13 +104,20 @@ CREATE TABLE `sys_user`  (
   `create_time` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `update_time` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 'wlm', 'wlm', '1', '20180924', NULL);
+INSERT INTO `sys_user` VALUES (1, 'wlm', 'wlm', '6', '20180924', NULL);
 INSERT INTO `sys_user` VALUES (2, 'djy', 'djy', '2', '20180924', NULL);
+INSERT INTO `sys_user` VALUES (3, 'dd', 'd', '3', '2018', '2018-06-06 08:44:06');
+INSERT INTO `sys_user` VALUES (4, 'dddddsf', 'sfsdfsf', '6', '2018', NULL);
+INSERT INTO `sys_user` VALUES (5, 'sdfsdf', 'sdf', '6', '2019', '2018-06-06 07:43:10');
+INSERT INTO `sys_user` VALUES (6, 'wlm', 'sdfsf', '9', '2018932', NULL);
+INSERT INTO `sys_user` VALUES (7, 'sdfsf', 'sdfsfd', '6', '648949489', '2018-06-06 08:00:23');
+INSERT INTO `sys_user` VALUES (8, 'sdfsaxc', 'dsgdag', '7', '2111', NULL);
+INSERT INTO `sys_user` VALUES (10, 'dfgdsgsd', 'dsgsdg', '9', '25555', NULL);
 
 -- ----------------------------
 -- Table structure for sys_user_role
